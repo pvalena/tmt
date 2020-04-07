@@ -81,6 +81,14 @@ class Discover(tmt.steps.Step):
             for test in step.tests():
                 yield test
 
+    def requires(self):
+        """ Return all tests' requires """
+        requires = set()
+        for test in self.tests():
+            for value in getattr(test, 'require', []):
+                requires.add(value)
+        return list(requires)
+
 
 class DiscoverPlugin(tmt.steps.Plugin):
     """ Common parent of discover plugins """

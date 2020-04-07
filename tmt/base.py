@@ -111,6 +111,7 @@ class Test(Node):
         'duration',
         'environment',
         'relevancy',
+        'require',
         'tag',
         'tier',
         'result',
